@@ -1,0 +1,26 @@
+/**
+ * 适配布局，px转vw
+ * h1 {
+ *   witdh: pxToVw(20)
+ * }
+ */
+$baseFontSize: 7.5;
+@function pxToVw($px) {
+	@return $px / $baseFontSize * 1vw;
+}
+
+/* 全局样式 */
+html, body{
+	font-family: "Microsoft YaHei";
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+ul, ol{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5{
+	margin: 0;
+}
