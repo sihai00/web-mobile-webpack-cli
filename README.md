@@ -28,11 +28,12 @@ npm start
 npm run build
 
 # config.js的配置
-端口号 port: 8000 
-开发环境下默认指向 serverIndex: ''
-打包文件名 outputPath: 'dist',
-缓存服务器地址 publicPath: '/',
-html标题 title: 'webpack-web-mobild-cli'
+
+port: 8000  端口号 
+serverIndex: '' 开发环境下默认指向 
+outputPath: 'dist' 打包文件名
+publicPath: '/' 缓存服务器地址
+title: 'webpack-web-mobild-cli' html标题
 ```
 
 ## 三：目录
@@ -78,7 +79,7 @@ html标题 title: 'webpack-web-mobild-cli'
 这种结构的好处是当不需要的时候可以一并删除
 
 ## 四：html
-项目使用了ejs作为开发的模板，好处是可以抽离出公共模块使用例子如下：
+项目使用了`ejs`作为开发的模板，好处是可以抽离出公共模块使用例子如下：
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +106,7 @@ $baseFontSize: 7.5;
 ```
 
 ## 六：javascript
-可以使用es7语法，打包后经过babel转译为es5
+可以使用最新语法，打包后经过`babel`转译为`es5`
 
 ### 6-1：生命周期
 - constructor
@@ -158,7 +159,7 @@ class index extends parent{
 ```
 
 ### 6-2：parent类
-page中的js都继承自parent，parent可以存放一些全局的方法和变量给子类调用
+`page`中的`js`都继承自`parent`，`parent`可以存放一些全局的方法和变量给子类调用
 
 ```javascript
 class parent {
@@ -209,10 +210,10 @@ this.getUrlParams('http://localhost:3000?a=1&b=2')
 ```
 
 #### 6-2-2：fetch请求数据
-请求错误做统一处理，调用this.fetch()后返回请求的数据
-- method：请求方法
-- url：请求地址
-- params: 请求参数
+请求错误做统一处理，调用`this.fetch()`后返回请求的数据
+- `method`：请求方法
+- `url`：请求地址
+- `params`: 请求参数
 
 ```javascript
 const data = this.fetch({
