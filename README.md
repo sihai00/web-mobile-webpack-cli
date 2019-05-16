@@ -21,14 +21,18 @@ webpack能很好的处理以上问题，它有一下优点：
 # 进入项目，运行前请先安装所需依赖
 npm install
 
-# 运行以下命令启动服务器 localhost:3000
-npm start
-
-# 也可以指定启动服务器的端口
+# 运行以下命令启动服务器 localhost:8000
 npm start
 
 # 打包（dist文件）
 npm run build
+
+# config.js的配置
+端口号 port: 8000 
+开发环境下默认指向 serverIndex: ''
+打包文件名 outputPath: 'dist',
+缓存服务器地址 publicPath: '/',
+html标题 title: 'webpack-web-mobild-cli'
 ```
 
 ## 三：目录
@@ -47,7 +51,7 @@ npm run build
 （结构一：兼容旧版本目录结构）
 - src
 	- html（ejs文件，支持ejs语法）
-		- page.html
+		- page.ejs
 	- js
 		- page.js
 	- sass
@@ -58,14 +62,14 @@ npm run build
 - src
 	- index
 		- html（ejs文件，支持ejs语法）
-			- index.html
+			- index.ejs
 		- js
 			- index.js
 		- sass
 			- index.scss
 	- index2
 		- html（ejs文件，支持ejs语法）
-			- index2.html
+			- index2.ejs
 		- js
 			- index2.js
 		- sass
@@ -198,13 +202,10 @@ class parent {
 
 #### 6-2-1：getUrlParams获取地址栏的参数
 ```javascript
-this.getUrlParams('http://localhost:3000?a=1&b=2')
-
 // 转化为
-{
-  a: 1,
-  b: 2
-}
+// { a: 1, b: 2 }
+
+this.getUrlParams('http://localhost:3000?a=1&b=2')
 ```
 
 #### 6-2-2：fetch请求数据
