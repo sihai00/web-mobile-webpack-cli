@@ -25,7 +25,11 @@ const baseConfig = {
 	resolve: {
 		alias: {
 			'@': resolve(__dirname, '../src'),
-		}
+		},
+		modules: [
+			resolve('src'),
+			resolve('node_modules'),
+		]
 	},
 	target: 'web',
 	module: {
@@ -33,9 +37,13 @@ const baseConfig = {
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,
+				include: [
+					resolve("src"),
+				],
 				use: {
 					loader: 'babel-loader',
 					options: {
+						cacheDirectory: true,
 						presets: ['@babel/preset-env'],
 						plugins: ['@babel/plugin-transform-runtime']
 					}
@@ -43,10 +51,16 @@ const baseConfig = {
 			},
 			{
 				test: /\.css$/,
+				include: [
+					resolve("src"),
+				],
 				use: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.(png|jpg|jpeg|gif)$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{
 						loader: 'url-loader',
@@ -60,12 +74,18 @@ const baseConfig = {
 			},
 			{
 				test: /\.(eot|ttf|svg|woff)$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{loader:'file-loader'},
 				]
 			},
 			{
 				test: /\.html$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{
 						loader: 'html-loader',
@@ -77,6 +97,9 @@ const baseConfig = {
 			},
 			{
 				test: /\.ejs$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{
 						loader: 'html-loader',

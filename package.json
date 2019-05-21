@@ -9,6 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
+	"sideEffects": [
+		"*.css",
+		"*.scss"
+	],
   "author": "sihai",
   "license": "ISC",
   "devDependencies": {

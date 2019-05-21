@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const webpack = require('webpack')
+const {resolve} = require('path')
 
 module.exports = {
 	devtool: false,
@@ -10,6 +11,9 @@ module.exports = {
 		rules: [
 			{
 				test: /\.scss$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{loader: MiniCssExtractPlugin.loader},
 					{loader: 'css-loader'},
@@ -37,7 +41,13 @@ module.exports = {
 		})
 	],
 	optimization: {
-		minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+		minimizer: [
+			new TerserJSPlugin({
+				parallel: true,
+				cache: true,
+			}),
+			new OptimizeCSSAssetsPlugin({})
+		],
 		runtimeChunk: {
 			name: 'manifest'
 		},

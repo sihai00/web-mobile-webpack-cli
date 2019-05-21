@@ -9,6 +9,9 @@ module.exports = {
 		rules: [
 			{
 				test: /\.scss$/,
+				include: [
+					resolve("src"),
+				],
 				use: [
 					{loader: 'style-loader', options: { sourceMap: true }},
 					{loader: 'css-loader', options: { sourceMap: true }},
